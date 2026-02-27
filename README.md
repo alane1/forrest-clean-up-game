@@ -1,0 +1,78 @@
+# Forrest Clean Up
+
+A kid-friendly browser game focused on restoring a forest through cleanup and planting.
+
+## Codebase Status
+
+This is the only source of truth for the game.
+
+- Desktop and mobile behavior are both implemented in `index.html`.
+- Mobile UI/controls are enabled conditionally at runtime (touch/coarse-pointer viewport detection).
+- Do not make gameplay or UI changes in `../forrest-clean-up-mobile/`; that folder is legacy documentation only.
+
+## Play Locally
+
+1. Open `/home/alane1/forrest-clean-up/index.html` in a browser.
+2. Start playing immediately (no install required).
+
+Optional local server:
+
+```bash
+cd /home/alane1/forrest-clean-up
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000`.
+
+## Controls
+
+- Move: `WASD` or arrow keys
+- Interact: `Space` (near 🌱 or 🧺 markers)
+- Click interaction: click acorns, litter spots, and plant spots
+- Inspect mode: click animals or planted trees to view name/type/fact in sidebar
+- Hover feedback: interactive objects glow and show pointer cursor
+- Systems & Debug: open live panel for formulas, queue, counters, and current state
+- Restart: `New Game` button
+- Easier difficulty: `Toggle Easy Mode`
+
+## Restoration Loop
+
+- Clean litter spots to start flower growth.
+- Cleaned zones spread a couple tiny flower patches nearby after about 1-2 minutes.
+- Gather acorns and plant saplings.
+- Planted saplings grow into larger trees over time.
+- Mature trees drop an acorn once they fully grow.
+- Surprise chains trigger later effects from your choices (e.g., cleanup -> fish return -> birds).
+- As Eco Health rises, more wildlife appears.
+- Day/night cycle runs on a 5-minute loop: 3 minutes day, 2 minutes night.
+- Owls are visible only at night.
+- Fireflies appear at night once restoration is high enough.
+
+## Win State
+
+You reach a “Forest Thriving” state when you hit restoration goals:
+
+- 12 saplings planted
+- 12 litter spots cleaned
+- 90% Eco Health
+
+After that, the game keeps running so you can continue restoring.
+
+## Notes
+
+- Best score is saved in browser local storage.
+- The game is dependency-free (single HTML file), so it is easy to extend.
+
+## Design Philosophies (Learning From You)
+
+- Guidance should be optional and lightweight, never blocking flow.
+- Mechanics are introduced only when the player naturally encounters them.
+- The core loop stays calming and exploratory; structure is a helpful layer, not the main event.
+- UI should invite curiosity without demanding attention.
+- Progression should feel like “discovering the forest,” not grinding objectives.
+
+## Design Decisions (2026-02-27)
+
+- Tone: Cozy and exploratory (not management/survival).
+- Scope: We are exploring new features and ideas; tighten later.
+- Failure: No fail states for now; players should always recover.
