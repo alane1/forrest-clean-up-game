@@ -258,6 +258,33 @@ Phase 1 is complete when:
    Answer: Yes.
 32. Keep current tap-to-toggle tool behavior, or restore explicit tool dropdown?
    Answer: Keep tap-to-toggle for now.
+
+## Session Addendum (Captured 2026-03-04)
+
+This addendum captures the latest decisions and behavior changes discussed after the initial plan draft.
+
+### Implemented Winter Behavior Updates
+
+1. Broken-ice hole + player behavior:
+   - When player stands on an active broken ice hole and stops briefly, player submerges (hidden).
+   - On movement input (or leaving the hole), player pops back out.
+   - Quick splash feedback appears on submerge and emerge.
+   - Added short stationary threshold before submerge to prevent flicker.
+
+2. Submerged visual mode:
+   - While submerged, view outside the active pond is blurred/frosted.
+   - Pond interior switches to an under-ice visual treatment.
+   - Small animated fish are visible swimming under the ice.
+
+3. Rendering/logic notes:
+   - Submerged state is tied to the active pond/hole context.
+   - Character render is suppressed while submerged.
+   - Existing winter crack/refreeze and shovel mechanics remain unchanged.
+
+### Documentation Status
+
+1. Phase 1 decisions are fully captured in this file.
+2. Phase 2 is currently captured at high level (winter quests + expanded interactions), but does not yet have a dedicated detailed breakdown/milestones document.
 33. Should crack/snowball action require being within player range, or anywhere clicked?
    Answer: Anywhere clicked for now.
 
