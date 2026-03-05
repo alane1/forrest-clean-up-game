@@ -232,25 +232,22 @@ If player presence works and feels fun, add shared tile state as V1.5.
 
 ---
 
-## Open Questions
+## Decisions (Q&A)
 
-### Product
-1. Should the shared map reset periodically (weekly, monthly) or evolve indefinitely?
-2. What happens if the shared map is fully cleaned — is there a "win" state, or does it regenerate?
-3. Should players be able to opt out of being visible to others (invisible mode)?
-4. What player name/avatar options should be available at session start?
-5. Should there be any persistence of contribution history (who cleaned what)?
-
-### Technical
-6. Which Firebase project should host this — a new one, or an existing one?
-7. Should the shared map be seeded from the default solo map layout, or a custom curated layout?
-8. What's the target frame rate for other-player position updates (smoothness vs. bandwidth)?
-9. Should we support mobile (touch) players in Forrest Friends V1?
-10. Is anonymous Firebase Auth worth adding in V1 for more stable player IDs, or skip?
-
-### Scope
-11. Should V1 target the lanelabs.github.io deployment or a separate test URL first?
-12. What's the definition of "done" for V1 — what must work before considering it shipped?
+| # | Question | Decision |
+|---|---|---|
+| 1 | Map reset cadence? | Manual reset only — no automatic resets |
+| 2 | Fully cleaned map behavior? | Sits clean until manually reset — no regeneration |
+| 3 | Invisible mode? | No |
+| 4 | Player identity at session start? | Name + color picker |
+| 5 | Contribution history? | "Planted by [name]" on trees — no full log |
+| 6 | Firebase project? | New dedicated project — will be reused for future personal projects |
+| 7 | Shared map layout? | Custom larger map optimized for multiplayer, with minimap navigation |
+| 8 | Position update rate? | Conservative — 5 updates/sec |
+| 9 | Mobile support? | Yes |
+| 10 | Authentication? | Google Sign-In (Firebase Auth) — gates access to real Google accounts, blocks spam |
+| 11 | Deployment target? | Go live directly on lanelabs.github.io |
+| 12 | V1 definition of done? | All existing solo features work in multiplayer (including mobile); players can see each other; no additional interaction features required |
 
 ---
 
